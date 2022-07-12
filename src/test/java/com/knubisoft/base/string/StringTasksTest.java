@@ -29,7 +29,7 @@ public class StringTasksTest {
         assertEquals("St. \n" +
                         " Andersan 7/10Tomeu",
                 instance.insertStringInMiddle("St. Tomeu", System.lineSeparator() + " Andersan 7/10"));
-    }
+    } //if add \r test will be pass
 
     @Test
     public void insertStringInMiddleFail() {
@@ -134,13 +134,13 @@ public class StringTasksTest {
     public void removeAllCharactersSuccessful() {
         assertEquals("Lorem ipsum door sit amet, consectetur adipiscing eit, sed do",
                 instance.removeAllCharacters("Lorem ipsum dolor sit amet, consectetur "
-                + "adipiscing elit, sed do", 'l'));
+                        + "adipiscing elit, sed do", 'l'));
         assertEquals("Lorm ipsum dolor sit amt, conscttur adipiscing lit, sd do",
                 instance.removeAllCharacters("Lorem ipsum dolor sit amet, consectetur "
-                + "adipiscing elit, sed do", 'e'));
+                        + "adipiscing elit, sed do", 'e'));
         assertEquals("Loremipsumdolorsitamet,consecteturadipiscingelit,seddo",
                 instance.removeAllCharacters("Lorem ipsum dolor sit amet, consectetur "
-                + "adipiscing elit, sed do", ' '));
+                        + "adipiscing elit, sed do", ' '));
     }
 
     @Test
@@ -163,6 +163,7 @@ public class StringTasksTest {
 
     @Test
     public void getCountRepeatableStringSuccessful() {
+        assertEquals("1211", instance.getCountRepeatableString("bob"));
         assertEquals("11123121211111111", instance.getCountRepeatableString("Hello, World!"));
         assertEquals("123456789123123456789121234567891123456789123456781234567123456123451234123121", instance.getCountRepeatableString("aaaaaaaaaaaa"));
         assertEquals("1", instance.getCountRepeatableString("0"));
