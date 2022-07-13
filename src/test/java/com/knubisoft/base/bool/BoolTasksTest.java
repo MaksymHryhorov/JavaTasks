@@ -112,5 +112,6 @@ public class BoolTasksTest {
         assertFalse(instance.isSameCharactersCount(null, "", 8));
         assertFalse(instance.isSameCharactersCount("johndoe", null, 8));
         assertFalse(instance.isSameCharactersCount(null, null, 8));
+        assertFalse(instance.isSameCharactersCount("ooo", "ooo", 2));
     }
 }

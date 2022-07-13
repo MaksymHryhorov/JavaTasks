@@ -37,41 +37,6 @@ public interface BoolTasks {
      */
     boolean orFunction(int digit, String string);
     /**
-     * You need to immediately return true if generated values have the same values;
-     * You can use only '&&' operator;
-     * Example 1:
-     *      input: {4, 4.4, 5}
-     *      output: {true}
-     * Example 2:
-     *      input: {4, 4.0, 5}
-     *      output: {true}
-     * Example 3:
-     *      input: {4, 4.5, 5}
-     *      output: {false}
-     * @param generatedFirstDigit - a random number in specified range.
-     * @param generatedSecondDigit - a random number in specified range.
-     * @param range - a range that can be 3 or 5.
-     */
-    boolean andComplexFunction(int generatedFirstDigit, double generatedSecondDigit, int range);
-    /**
-     * You need to immediately return true if the first generated value equals to second value or third value;
-     * You can use only '||' operator;
-     * Example 1:
-     *      input: {5, 5.3, 5.5, 6}
-     *      output: {true}
-     * Example 2:
-     *      input: {5, 5.5, 5.3, 6}
-     *      output: {true}
-     * Example 3:
-     *      input: {5, 5.5, 5.5, 6}
-     *      output: {false}
-     * @param generatedFirstDigit - a random number in specified range.
-     * @param generatedSecondDigit - a random number in specified range.
-     * @param generatedThirdDigit - a random number in specified range.
-     * @param range - a range that can be 5 or 7.
-     */
-    boolean orComplexFunction(int generatedFirstDigit, double generatedSecondDigit, int generatedThirdDigit, int range);
-    /**
      * Convert params to string type and put the checker on them size.
      * Example 1:
      *      input: {'asd', 'qwe'}
