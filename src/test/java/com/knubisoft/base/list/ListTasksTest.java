@@ -38,7 +38,7 @@ public class ListTasksTest {
     @Test
     public void getElementsByIndexesSuccessful() {
         List<String> actualFirst = instance
-                .getElementsByIndexes(new ArrayList<>(Arrays.asList("Alex", "Bob", "Alica")), new int[]{2, 3});
+                .getElementsByIndexes(new ArrayList<>(Arrays.asList("Alex", "Bob", "Alica")), new int[]{2, 2});
         assertEquals("Alex", actualFirst.get(0));
         assertEquals("Bob", actualFirst.get(1));
         assertEquals("Alica", actualFirst.get(2));
@@ -94,7 +94,7 @@ public class ListTasksTest {
     @Test
     public void addElementsByIndexesSuccessful() {
         ArrayList<String> actualFirst = instance
-                .addElementsByIndexes(new ArrayList<>(Arrays.asList("Alex", "Bob", "Alica")), new int[]{2, 3});
+                .addElementsByIndexes(new ArrayList<>(Arrays.asList("Alex", "Bob", "Alica")), new int[]{2, 2});
         assertEquals("Alex", actualFirst.get(0));
         assertEquals("Bob", actualFirst.get(1));
         assertEquals("Alica", actualFirst.get(2));
