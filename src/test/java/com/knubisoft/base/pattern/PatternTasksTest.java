@@ -40,12 +40,16 @@ public class PatternTasksTest {
 
     @Test
     public void matchStartAndEndSuccessful() {
+        assertEquals("Found a match!",
+                instance.matchStartAndEnd("aga"));
         assertEquals("Not matched!",
                 instance.matchStartAndEnd("The quick brown fox jumps over the lazy dog."));
         assertEquals("Not matched!",
                 instance.matchStartAndEnd("Java Exercises."));
         assertEquals("Not matched!",
                 instance.matchStartAndEnd("Do humans eat gizzards?"));
+        assertEquals("Not matched!",
+                instance.matchStartAndEnd("Testg"));
         assertEquals("Found a match!",
                 instance.matchStartAndEnd("PostgreSQL"));
     }
@@ -60,6 +64,7 @@ public class PatternTasksTest {
         assertEquals("216.8.94.196", instance.matchIpAddress("216.08.094.196"));
         assertEquals("8.8.8.8", instance.matchIpAddress("08.008.0008.00008"));
         assertEquals("1.102.103.104", instance.matchIpAddress("01.102.103.104"));
+        assertEquals("1.120.130.140", instance.matchIpAddress("01.120.130.140"));
     }
 
     @Test
@@ -147,7 +152,7 @@ public class PatternTasksTest {
     @Test
     public void getLastVowelsByConstraintSuccessful() {
         assertEquals("aa", instance.getLastVowelsByConstraint("Java", 2));
-        assertEquals("ai", instance.getLastVowelsByConstraint("JavaScript", 2));
+        assertEquals("aai", instance.getLastVowelsByConstraint("JavaScript", 3));
         assertEquals("aai", instance.getLastVowelsByConstraint("JavaScript", 3));
         assertEquals("ie", instance.getLastVowelsByConstraint("SQLite", 2));
     }
@@ -169,9 +174,9 @@ public class PatternTasksTest {
     @Test
     public void isMathematicalExpressionSuccessful() {
         assertTrue(instance.isMathematicalExpression("10"));
+        assertFalse(instance.isMathematicalExpression("10 *+ 20 * 30"));
         assertTrue(instance.isMathematicalExpression("10 + 20"));
         assertFalse(instance.isMathematicalExpression("100 +"));
-        assertFalse(instance.isMathematicalExpression("10 *+ 20 * 30"));
     }
 
     @Test
