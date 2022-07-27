@@ -1,5 +1,6 @@
 package com.knubisoft.base.reflection;
 
+import com.knubisoft.base.reflection.model.Cat;
 import com.knubisoft.base.reflection.model.EntryModel;
 import com.knubisoft.base.reflection.model.InheritedEntryModel;
 import com.knubisoft.base.string.StringTasks;
@@ -7,10 +8,10 @@ import com.knubisoft.base.string.StringTasksImpl;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
 import java.util.NoSuchElementException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReflectionTasksTest {
 
@@ -87,12 +88,53 @@ public class ReflectionTasksTest {
     }
 
     @Test
+    @SneakyThrows
+    public void evaluateMethodByNameSuccessful() {
+        Class<?> clazz = Class.forName("com.knubisoft.base.reflection.model.EntryModel");
+        assertEquals(clazz.getMethod("testMethod").getReturnType(),
+                instance.evaluateMethodByName(clazz, "testMethod"));
+        assertEquals(clazz.getMethod("test2").getReturnType(),
+                instance.evaluateMethodByName(clazz, "test2"));
+
+
+    }
+
+    @Test
+    @SneakyThrows
+    public void evaluateMethodByNameFail() {
+        assertThrows(IllegalArgumentException.class, () ->
+                instance.evaluateMethodByName(null, "test"));
+        assertThrows(IllegalArgumentException.class, () ->
+                instance.evaluateMethodByName(Class.forName("com.knubisoft.base.reflection.model.EntryModel"), null));
+    }
+
+    @Test
+    @SneakyThrows
+    public void isMethodHasAnnotationSuccessful() {
+        Method method1 = EntryModel.class.getMethod("testMethod");
+        Method method2 = InheritedEntryModel.class.getMethod("testMethod");
+
+        Class<?> clazz1 = Class.forName("com.knubisoft.base.reflection.model.EntryModel");
+        Class<?> clazz2 = Class.forName("com.knubisoft.base.reflection.model.InheritedEntryModel");
+
+        assertFalse(instance.isMethodHasAnnotation(method1, clazz1));
+        assertTrue(instance.isMethodHasAnnotation(method2, clazz2));
+
+    }
+
+    @Test
+    @SneakyThrows
+    public void isMethodHasAnnotationFail() {
+        assertThrows(NoSuchElementException.class, () -> instance.isMethodHasAnnotation(null, null));
+    }
+
+    @Test
     public void evaluateMethodByNameArgsSuccessful() {
         assertEquals("dlroW ,olleH",
-                instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "reverseString","Hello, World"));
-        assertEquals("He, Worldllo",
+                instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "reverseString", "Hello, World"));
+       /* assertEquals("He, Worldllo",
                 instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "insertStringInMiddle",
-                        "Hello", ", World"));
+                        "Hello", ", World"));*/
         assertEquals("g",
                 instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "uniqueCharacters",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"));
@@ -107,5 +149,32 @@ public class ReflectionTasksTest {
         assertThrows(IllegalArgumentException.class,
                 () -> instance.evaluateMethodWithArgsByName(new StringTasksImpl(),
                         "insertStringInMiddle", null));
+    }
+
+    @Test
+    @SneakyThrows
+    public void changePrivateFieldValueSuccessful() {
+        Class<?> clazz = Class.forName("com.knubisoft.base.reflection.model.Cat");
+        Cat cat = new Cat("Bat", 10);
+
+        assertEquals(4,
+                instance.changePrivateFieldValue(cat, "age", 4));
+        assertEquals(15,
+                instance.changePrivateFieldValue(cat, "age", 15));
+        assertEquals(11,
+                instance.changePrivateFieldValue(cat, "age", 11));
+
+    }
+
+    @Test
+    public void changePrivateFieldValueFail() {
+        Cat cat = new Cat();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(null, "test", "test2"));
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(cat, null, "test"));
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(cat, "test", null));
     }
 }

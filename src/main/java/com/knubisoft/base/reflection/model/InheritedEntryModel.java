@@ -1,5 +1,7 @@
 package com.knubisoft.base.reflection.model;
 
+import jdk.jfr.Description;
+
 public class InheritedEntryModel extends EntryModel {
 
     public InheritedEntryModel(String tableName) {
@@ -17,5 +19,11 @@ public class InheritedEntryModel extends EntryModel {
     @Override
     public EntryModel builder() {
         return super.builder();
+    }
+
+    @Override
+    @Description("test")
+    public void testMethod() {
+
     }
 }

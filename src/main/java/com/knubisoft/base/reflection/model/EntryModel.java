@@ -32,4 +32,13 @@ public abstract class EntryModel {
     private String getUser1() {
         return "";
     }
+
+    public void testMethod() {
+
+    }
+
+    public int test2() {
+
+        return 0;
+    }
 }
