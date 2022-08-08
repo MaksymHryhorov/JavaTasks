@@ -1,5 +1,6 @@
 package com.knubisoft.ORM;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -12,8 +13,13 @@ public class Main {
         InputStream stream = Main.class.getClassLoader().getResourceAsStream("sample.csv");
         List<String> lines = IOUtils.readLines(stream, StandardCharsets.UTF_8);
 
-
         List<Person> personList = CSVOrm.transform(lines, Person.class);
+
+
+        String path = "D:\\Projects\\java-education\\src\\main\\resources\\format.json";
+
+        List<Person> jsonList2 = CSVOrm.transformJson(path, new TypeReference<>() {});
+
 
     }
 

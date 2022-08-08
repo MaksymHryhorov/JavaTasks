@@ -1,7 +1,11 @@
 package com.knubisoft.ORM;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -15,7 +19,6 @@ import java.util.stream.Collectors;
 public class CSVOrm {
 
     public static final String DELIMITER = ",";
-    public static final String COMMENT = "--";
 
     public static <T> List<T> transform(List<String> lines, Class<T> cls) {
         Map<Integer, String> mapping = buildMapping(lines.get(0));
@@ -29,9 +32,6 @@ public class CSVOrm {
         String[] array = splitLine(firstLine);
         for (int index = 0; index < array.length; index++) {
             String value = array[index];
-            if (value.contains(COMMENT)) {
-                value = value.split(COMMENT)[0];
-            }
             map.put(index, value.trim());
         }
         return map;
@@ -82,5 +82,14 @@ public class CSVOrm {
         return line.split(DELIMITER);
     }
 
+    // Use ObjectMapper and jackson-datatype-jsr310
+    public static List<Person> transformJson(String path, TypeReference<List<Person>> personClass) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.findAndRegisterModules();
+
+        List<Person> jsonList = jsonList = mapper.readValue(new File(path), personClass);
+
+        return jsonList;
+    }
 }
 
