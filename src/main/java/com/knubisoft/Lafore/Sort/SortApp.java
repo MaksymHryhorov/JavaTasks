@@ -1,8 +1,8 @@
 package com.knubisoft.Lafore.Sort;
 
-
 import com.knubisoft.Lafore.Arrays.Person;
-import org.checkerframework.checker.units.qual.A;
+
+import java.util.Arrays;
 
 public class SortApp {
 
@@ -24,9 +24,8 @@ public class SortApp {
         arraySort.insert(33);
 
         arraySort.display();
-        //arraySort.bubbleSort();
+        arraySort.bubbleSort();
         //arraySort.selectionSort();
-        arraySort.insertionSort();
         arraySort.display();
 
 
