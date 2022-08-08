@@ -2,6 +2,10 @@ package com.knubisoft.base.queue;
 
 import com.knubisoft.base.queue.car.Car;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -32,5 +36,4 @@ public class QueueTasksImpl implements QueueTasks {
     public PriorityQueue<Car> implementPriorityQueueThroughComparator(List<Car> cars) {
         return null;
     }
-
 }
