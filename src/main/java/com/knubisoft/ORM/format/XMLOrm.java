@@ -10,7 +10,7 @@ import java.util.List;
 public class XMLOrm {
 
     @SneakyThrows
-    public static <T> List<T> transformJson(File path, TypeReference<List<T>> typeReference) {
+    public <T> List<T> transformOrm(File path, TypeReference<List<T>> typeReference) {
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.findAndRegisterModules();
 

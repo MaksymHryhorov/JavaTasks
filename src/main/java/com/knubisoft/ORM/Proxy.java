@@ -17,10 +17,11 @@ import java.util.List;
 public class Proxy {
 
     @SneakyThrows
-    public static List<Person> transformType(File file, TypeReference<List<Person>> objectTypeReference) {
+    public List<Person> transformType(File file, TypeReference<List<Person>> objectTypeReference) {
         if (getFileExtension(file).equals("json")) {
+            JSONOrm jsonOrm = new JSONOrm();
 
-            return JSONOrm.transformJson(file, objectTypeReference);
+            return jsonOrm.transformJson(file, objectTypeReference);
         } else if (getFileExtension(file).equals("csv")) {
             InputStream stream = Main.class.getClassLoader().getResourceAsStream(file.getName());
 
@@ -28,17 +29,17 @@ public class Proxy {
 
             return CSVOrm.transform(lines, Person.class);
         } else if (getFileExtension(file).equals("xml")) {
+            XMLOrm xmlOrm = new XMLOrm();
 
-            return XMLOrm.transformJson(file, objectTypeReference);
-        }
-        else {
+            return xmlOrm.transformOrm(file, objectTypeReference);
+        } else {
             throw new CustomException("File not supported");
         }
 
     }
 
     @SneakyThrows
-    public static String getFileExtension(File file) {
+    public String getFileExtension(File file) {
         String fileName = file.getName();
         // if file name has "."  and it isn't first symbol in file name
         if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
@@ -48,5 +49,34 @@ public class Proxy {
         else {
             throw new CustomException("File not supported ");
         }
+    }
+
+    public static void main(String[] args) {
+        int x = 1;
+        for (int i = 0; i < 5; i++) {
+            if (i == 2){ continue; }
+            if (i == 4) { break;}
+            x += (i < 2 ? i : 2*i);
+        }
+        System.out.println(x);
+
+        int[][] x1 = {{3,1,4},{1,5,9}};
+        int[] y = {2,6,7};
+
+        y = x1[1];
+        y[1] = 1;
+
+        System.out.println(x1[0][1] + x1[1][1]);
+
+
+        Integer numA = 0;
+        incrementNumber(numA);
+        numA = numA * 2;
+        System.out.println(numA);
+    }
+
+    private static void incrementNumber(Integer numP) {
+        numP++;
+        Integer numA = 42;
     }
 }

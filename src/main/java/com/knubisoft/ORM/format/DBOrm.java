@@ -12,12 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBOrm {
-    private static Connection connection;
-    private static Statement statement;
-    private static ResultSet resultSet;
 
     @SneakyThrows
-    public static List<Person> createPerson() {
+    public List<Person> createPerson() {
+        Connection connection;
+        Statement statement;
+        ResultSet resultSet;
+
         List<Person> list = new ArrayList<>();
         Person person = new Person();
 
@@ -37,7 +38,7 @@ public class DBOrm {
             list.add(person);
             person = new Person();
         }
-        
+
 
         return list;
     }

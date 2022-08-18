@@ -14,6 +14,8 @@ public class OrmTest {
     @Test
     @SneakyThrows
     void transformType() {
+        DBOrm dbOrm = new DBOrm();
+        Proxy proxy = new Proxy();
 
         File xmlFile = new File("D:\\Projects\\java-education\\src\\main\\resources\\format.xml");
         File csvFile = new File("D:\\Projects\\java-education\\src\\main\\resources\\sample.csv");
@@ -21,31 +23,31 @@ public class OrmTest {
 
 
         assertEquals("name='Ivan', age=19, salary=1000, position='junior', dateOfBirth=1995-10-19, xxx=1234.123",
-                Proxy.transformType(xmlFile, new TypeReference<>() {}).get(1).toString());
+                proxy.transformType(xmlFile, new TypeReference<>() {}).get(1).toString());
         assertEquals("name='Misha', age=21, salary=3000, position='senior', dateOfBirth=1998-10-23, xxx=1234.123",
-                Proxy.transformType(xmlFile, new TypeReference<>() {}).get(3).toString());
+                proxy.transformType(xmlFile, new TypeReference<>() {}).get(3).toString());
         assertEquals("name='Sonia', age=23, salary=5000, position='middle', dateOfBirth=1989-08-18, xxx=1234.123",
-                Proxy.transformType(xmlFile, new TypeReference<>() {}).get(5).toString());
+                proxy.transformType(xmlFile, new TypeReference<>() {}).get(5).toString());
 
         assertEquals("name='Ivan', age=19, salary=1000, position='junior', dateOfBirth=1995-10-19, xxx=1234.123",
-                Proxy.transformType(csvFile, new TypeReference<>() {}).get(1).toString());
+                proxy.transformType(csvFile, new TypeReference<>() {}).get(1).toString());
         assertEquals("name='Misha', age=21, salary=3000, position='senior', dateOfBirth=1987-10-23, xxx=1234.123",
-                Proxy.transformType(csvFile, new TypeReference<>() {}).get(3).toString());
+                proxy.transformType(csvFile, new TypeReference<>() {}).get(3).toString());
         assertEquals("name='Sonia', age=23, salary=4000, position='middle', dateOfBirth=1989-08-18, xxx=1234.123",
-                Proxy.transformType(csvFile, new TypeReference<>() {}).get(5).toString());
+                proxy.transformType(csvFile, new TypeReference<>() {}).get(5).toString());
 
         assertEquals("name='Ivan', age=19, salary=1000, position='junior', dateOfBirth=1995-10-19, xxx=1234.123",
-                Proxy.transformType(jsonFile, new TypeReference<>() {}).get(1).toString());
+                proxy.transformType(jsonFile, new TypeReference<>() {}).get(1).toString());
         assertEquals("name='Misha', age=21, salary=3000, position='senior', dateOfBirth=1998-10-23, xxx=1234.123",
-                Proxy.transformType(jsonFile, new TypeReference<>() {}).get(3).toString());
+                proxy.transformType(jsonFile, new TypeReference<>() {}).get(3).toString());
         assertEquals("name='Sonia', age=23, salary=5000, position='middle', dateOfBirth=1989-08-18, xxx=1234.123",
-                Proxy.transformType(jsonFile, new TypeReference<>() {}).get(5).toString());
+                proxy.transformType(jsonFile, new TypeReference<>() {}).get(5).toString());
 
         assertEquals("name='Ivan', age=19, salary=1000, position='junior', dateOfBirth=1995-10-19, xxx=1234.12",
-                DBOrm.createPerson().get(1).toString());
+                dbOrm.createPerson().get(1).toString());
         assertEquals("name='Misha', age=21, salary=3000, position='senior', dateOfBirth=1987-10-23, xxx=1234.12",
-                DBOrm.createPerson().get(3).toString());
+                dbOrm.createPerson().get(3).toString());
         assertEquals("name='Sonia', age=23, salary=4000, position='middle', dateOfBirth=1989-08-18, xxx=1234.12",
-                DBOrm.createPerson().get(5).toString());
+                dbOrm.createPerson().get(5).toString());
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class JSONOrm {
 
     @SneakyThrows
-    public static <T> List<T> transformJson(File path, TypeReference<List<T>> typeReference) {
+    public <T> List<T> transformJson(File path, TypeReference<List<T>> typeReference) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.findAndRegisterModules();
 

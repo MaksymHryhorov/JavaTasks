@@ -14,10 +14,12 @@ public class Main {
         File file = new File("D:\\Projects\\java-education\\src\\main\\resources\\sample.csv");
         //File file = new File("D:\\Projects\\java-education\\src\\main\\resources\\format.json");
 
-        List<Person> personList = Proxy.transformType(file, new TypeReference<>() {});
+        Proxy proxy = new Proxy();
+        DBOrm dbOrm = new DBOrm();
 
-        List<Person> personListFromDataBase = DBOrm.createPerson();
+        List<Person> personList = proxy.transformType(file, new TypeReference<>() {});
 
+        List<Person> personListFromDataBase = dbOrm.createPerson();
     }
 
 }

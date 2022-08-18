@@ -1,0 +1,65 @@
+package com.knubisoft.ORMv2;
+
+import com.knubisoft.ORMv2.model.Person;
+import com.knubisoft.ORMv2.model.Table;
+import com.knubisoft.ORMv2.sourceInterf.DataReadWriteSource;
+import com.knubisoft.ORMv2.sourceInterf.ORMInterface;
+import lombok.SneakyThrows;
+
+import java.lang.reflect.Method;
+import java.math.BigInteger;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.function.Function;
+
+public class Main {
+
+    private static final ORMInterface ORM = new ORM();
+
+    public static void main(String[] args) {
+
+        withConnection(connection -> {
+            process(connection);
+            return null;
+        });
+    }
+
+    private static void process(Connection connection) {
+        //URL url = Main.class.getClassLoader().getResource("format.json");
+
+        List<Person> result;
+
+        String table = Person.class.getAnnotation(Table.class).name();
+
+        DataReadWriteSource<ResultSet> rw = new ConnectionReadWriteSource(connection, table);
+
+        result = ORM.readAll(rw, Person.class);
+        result.add(new Person("WRITE", BigInteger.ZERO, BigInteger.ZERO, "WRITE", LocalDate.now(), 0F));
+
+    }
+
+    @SneakyThrows
+    private static void withConnection(Function<Connection, Void> function) {
+        try (Connection c = DriverManager.getConnection("jdbc:sqlite:sample.db")) {
+            try (Statement stmt = c.createStatement()) {
+                stmt.executeUpdate("CREATE TABLE IF NOT EXISTS person " +
+                        "(id INTEGER not NULL, " +
+                        " name VARCHAR(255), " +
+                        " position VARCHAR(255), " +
+                        " age INTEGER, " +
+                        " PRIMARY KEY ( id ))");
+
+                stmt.executeUpdate("DELETE FROM person");
+                for (int index = 0; index < 10; index++) {
+                    stmt.executeUpdate("INSERT INTO person (name, position, age) VALUES ('1','1','1')");
+                }
+            }
+            function.apply(c);
+        }
+    }
+}
