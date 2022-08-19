@@ -6,15 +6,26 @@ import lombok.SneakyThrows;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DatabaseParsingStrategy implements ParsingStrategy<ConnectionReadWriteSource> {
+    private final Class<?> tableClass;
 
+    public DatabaseParsingStrategy(Class<?> clazz) {
+        this.tableClass = clazz;
+    }
+
+    @SneakyThrows
     @Override
-    public Table parseToTable(ConnectionReadWriteSource content) {
-        ResultSet rs = content.getContent();
+    public Table parseToTable(ConnectionReadWriteSource connection) {
+        Statement statement = connection.getContent().createStatement();
+
+        String table = tableClass.getAnnotation(com.knubisoft.ORMv2.model.Table.class).name();
+        ResultSet rs = statement.executeQuery("SELECT * FROM " + table);
         Map<Integer, Map<String, String>> result = buildTable(rs);
+
         return new Table(result);
     }
 

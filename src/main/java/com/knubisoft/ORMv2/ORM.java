@@ -1,5 +1,6 @@
 package com.knubisoft.ORMv2;
 
+import com.knubisoft.ORM.model.Person;
 import com.knubisoft.ORMv2.parsingStrategy.*;
 import com.knubisoft.ORMv2.sourceInterf.DataReadWriteSource;
 import com.knubisoft.ORMv2.sourceInterf.ORMInterface;
@@ -20,7 +21,7 @@ public class ORM implements ORMInterface {
     @Override
     @SneakyThrows
     public <T> List<T> readAll(DataReadWriteSource<?> inputSource, Class<T> cls) {
-        Table table = convertToTable(inputSource);
+        Table table = convertToTable(inputSource, cls);
         return convertTableToListOfClasses(table, cls);
     }
 
@@ -62,10 +63,11 @@ public class ORM implements ORMInterface {
         }).apply(value);
     }
 
-    private Table convertToTable(DataReadWriteSource dataInputSource) {
+    private Table convertToTable(DataReadWriteSource dataInputSource, Class<?> cls) {
         if (dataInputSource instanceof ConnectionReadWriteSource) {
             ConnectionReadWriteSource databaseSource = (ConnectionReadWriteSource) dataInputSource;
-            return new DatabaseParsingStrategy().parseToTable(databaseSource);
+
+            return new DatabaseParsingStrategy(cls).parseToTable(databaseSource);
         } else if (dataInputSource instanceof FileReadWriteSource) {
             FileReadWriteSource fileSource = (FileReadWriteSource) dataInputSource;
             return getStringParsingStrategy(fileSource).parseToTable(fileSource);

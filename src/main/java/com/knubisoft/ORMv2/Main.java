@@ -1,14 +1,11 @@
 package com.knubisoft.ORMv2;
 
 import com.knubisoft.ORMv2.model.Person;
-import com.knubisoft.ORMv2.model.Table;
 import com.knubisoft.ORMv2.sourceInterf.DataReadWriteSource;
 import com.knubisoft.ORMv2.sourceInterf.ORMInterface;
 import lombok.SneakyThrows;
 
-import java.lang.reflect.Method;
 import java.math.BigInteger;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -34,9 +31,7 @@ public class Main {
 
         List<Person> result;
 
-        String table = Person.class.getAnnotation(Table.class).name();
-
-        DataReadWriteSource<ResultSet> rw = new ConnectionReadWriteSource(connection, table);
+        DataReadWriteSource<ResultSet> rw = new ConnectionReadWriteSource(connection);
 
         result = ORM.readAll(rw, Person.class);
         result.add(new Person("WRITE", BigInteger.ZERO, BigInteger.ZERO, "WRITE", LocalDate.now(), 0F));
