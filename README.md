@@ -1,5 +1,9 @@
+## Parser, Mapper [Implementation](https://github.com/MaksymHryhorov/JavaTests/tree/OrmBranch/src/main/java/com/knubisoft/ORMv2)
+`CSV`, `JSON / XML`, `DataBase` - You can parse, map your file to Java model and and write it to another file.
 
-# Tasks [Requirement](https://github.com/MaksymHryhorov/JavaTests/tree/master/src/main/java/com/knubisoft/base)
+___
+## Tasks [Requirement](https://github.com/MaksymHryhorov/JavaTests/tree/master/src/main/java/com/knubisoft/base)
+
 ### Arrays [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/arrays/ArraysTasksImpl.java)
 1. reverse 
 2. mergeArrays 
@@ -11,7 +15,7 @@
 8. longestCommonPrefix 
 9. missingNumber 
 10. containsDuplicate
-
+___
 ### Boolean [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/bool/BoolTasksImpl.java)
 1. isTrueAutobox 
 2. isFalseAutobox 
@@ -21,7 +25,7 @@
 6. isSameSizeArray
 7. isSameCharactersCount 
 8. andFunction 
-
+___
 ### Date [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/date/DateTasksImpl.java)
 1. add1Day
 2. getMonthFromDate
@@ -31,7 +35,7 @@
 6. getDateAfter2Weeks 
 7. getNumOfDaysBetwTwoDates 
 8. getTheNextAndPreviousFriday
-
+___
 ### List [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/list/ListTasksImpl.java)
 1. addElements
 2. getElementsByIndexes 
@@ -44,7 +48,7 @@
 9. multiplyMax2Elements
 10. removeNulls
 11. flatMapWithoutNulls
-
+___
 ### Numbers [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/numbers/NumbersTasksImpl.java)
 1. swapTwoNumbWithtUsTempVar 
 2. isUglyInt 
@@ -55,7 +59,7 @@
 7. factorial
 8. palindrome 
 9. isAutomorphic 
-
+___
 ### Pattern [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/numbers/NumbersTasksImpl.java)
 1. haveSetOfCharacters
 2. matchByCharacters
@@ -69,14 +73,14 @@
 10. getLastVowelsByConstraint
 11. isMathematicalExpression
 12. insertDash
-
+___
 ### Queue [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/queue/QueueTasksImpl.java)
 1. reverseQueueUsingRecursion
 2. reverseFirstKElementsOfQueue
 3. sortQueueOfInt
 4. validParentheses
 5. implementPriorityQueueThroughComparator
-
+___
 ### Reflection [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/reflection/ReflectionTasksImpl.java)
 1. createNewInstanceForClass
 2. findImplementationForInterface
@@ -86,7 +90,7 @@
 6. evaluateMethodByName
 7. evaluateMethodWithArgsByName
 8. changePrivateFieldValue
-
+___
 ### String [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/string/StringTasksImpl.java)
 1. reverseString
 2. insertStringInMiddle
@@ -99,7 +103,7 @@
 9. toCamelCase
 10. getCountRepeatableString
 11. sortStringCharactersAsc
-
+___
 ### Trees [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/trees/TreeTasksImpl.java)
 1. isSameTree
 2. inorderTraversal
@@ -109,7 +113,7 @@
 6. invertTree
 7. sumOfLeftLeaves
 8. mergeTrees
-
+___
 ## Algorithm [Implementation](https://github.com/MaksymHryhorov/JavaTests/tree/master/src/main/java/com/knubisoft/tasks/algorithm)
 1. charsinstring
 2. collection
@@ -120,9 +124,4 @@
 7. reflection
 8. search
 9. sorting
-
-## ORM [Implementation](https://github.com/MaksymHryhorov/JavaTests/tree/OrmBranch/src/main/java/com/knubisoft/ORM)
-csv | json | xml 
---- | --- | ---
-
-
+___
