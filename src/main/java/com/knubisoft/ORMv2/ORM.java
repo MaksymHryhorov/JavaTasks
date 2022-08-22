@@ -1,6 +1,5 @@
 package com.knubisoft.ORMv2;
 
-import com.knubisoft.ORM.model.Person;
 import com.knubisoft.ORMv2.parsingStrategy.*;
 import com.knubisoft.ORMv2.sourceInterf.DataReadWriteSource;
 import com.knubisoft.ORMv2.sourceInterf.ORMInterface;
