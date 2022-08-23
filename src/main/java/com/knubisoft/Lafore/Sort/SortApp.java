@@ -11,17 +11,13 @@ public class SortApp {
         ArraySort arraySort = new ArraySort(maxSize);
         ObjectSort objectSort = new ObjectSort(maxSize);
 
-        arraySort.insert(79);
-        arraySort.insert(99);
-        arraySort.insert(44);
-        arraySort.insert(55);
-        arraySort.insert(52);
+        arraySort.insert(14);
+        arraySort.insert(56);
+        arraySort.insert(23);
+        arraySort.insert(76);
+        arraySort.insert(6);
 
-        arraySort.insert(88);
-        arraySort.insert(11);
-        arraySort.insert(0);
-        arraySort.insert(66);
-        arraySort.insert(33);
+
 
         arraySort.display();
         arraySort.bubbleSort();
@@ -77,7 +73,7 @@ class ArraySort {
     public void bubbleSort() {
         int out, in;
 
-        for (out = nElems - 1; out > 1; out--) {
+        for (out = nElems - 1; out >= 1; out--) {
             for (in = 0; in < out; in++) {
                 if (a[in] > a[in + 1]) { // порядок не правильный?
                     swap(in, in + 1); // меняем местами

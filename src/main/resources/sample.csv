@@ -1,4 +1,4 @@
-position,age,salary,name,dateOfBirth,xxx
+name,age,salary,position,dateOfBirth,xxx
 Igor,18,2000,middle,1997-10-10,1234.123
 Ivan,19,1000,junior,1995-10-19,1234.123
 Olga,20,100,senior,1993-10-20,1234.123

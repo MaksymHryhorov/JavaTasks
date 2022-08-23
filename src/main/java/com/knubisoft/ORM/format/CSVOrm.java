@@ -1,11 +1,7 @@
-package com.knubisoft.ORM;
+package com.knubisoft.ORM.format;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -82,14 +78,5 @@ public class CSVOrm {
         return line.split(DELIMITER);
     }
 
-    // Use ObjectMapper and jackson-datatype-jsr310
-    public static List<Person> transformJson(String path, TypeReference<List<Person>> personClass) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.findAndRegisterModules();
-
-        List<Person> jsonList = jsonList = mapper.readValue(new File(path), personClass);
-
-        return jsonList;
-    }
 }
 

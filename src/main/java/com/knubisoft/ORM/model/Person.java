@@ -1,4 +1,4 @@
-package com.knubisoft.ORM;
+package com.knubisoft.ORM.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,4 +19,13 @@ public class Person implements Serializable {
     private LocalDate dateOfBirth;
     private Float xxx;
 
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", position='" + position + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", xxx=" + xxx;
+    }
 }
