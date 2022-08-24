@@ -16,19 +16,23 @@ import java.util.List;
 
 public class Proxy {
 
+     public static final String TYPE_JSON = "json";
+     public static final String TYPE_CSV = "csv";
+     public static final String TYPE_XML = "xml";
+
     @SneakyThrows
     public List<Person> transformType(File file, TypeReference<List<Person>> objectTypeReference) {
-        if (getFileExtension(file).equals("json")) {
+        if (getFileExtension(file).equals(TYPE_JSON)) {
             JSONOrm jsonOrm = new JSONOrm();
 
             return jsonOrm.transformJson(file, objectTypeReference);
-        } else if (getFileExtension(file).equals("csv")) {
+        } else if (getFileExtension(file).equals(TYPE_CSV)) {
             InputStream stream = Main.class.getClassLoader().getResourceAsStream(file.getName());
 
             List<String> lines = IOUtils.readLines(stream, StandardCharsets.UTF_8);
 
             return CSVOrm.transform(lines, Person.class);
-        } else if (getFileExtension(file).equals("xml")) {
+        } else if (getFileExtension(file).equals(TYPE_XML)) {
             XMLOrm xmlOrm = new XMLOrm();
 
             return xmlOrm.transformOrm(file, objectTypeReference);
