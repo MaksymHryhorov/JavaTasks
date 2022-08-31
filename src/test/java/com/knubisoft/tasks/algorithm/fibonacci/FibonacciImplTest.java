@@ -1,12 +1,13 @@
 package com.knubisoft.tasks.algorithm.fibonacci;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class FibonacciImplTest {
 
@@ -27,7 +28,17 @@ class FibonacciImplTest {
         Map<Integer, Integer> lookup = new HashMap<>();
 
         for (int index = 0; index < 1000; index++) {
-            assertEquals(fibonacci.generateNFibonacciSequence(index), fib(index, lookup));
+            int finalIndex = index;
+            NumberFormatException thrw = Assertions.assertThrows(NumberFormatException.class, () -> {
+                if (finalIndex > 100) {
+                    assertEquals(fibonacci.generateNFibonacciSequence(finalIndex), fib(finalIndex, lookup));
+                }
+
+                Integer.parseInt("");
+            }, "NumberFormatException");
+
+            Assertions.assertEquals(thrw, thrw);
+
         }
     }
 

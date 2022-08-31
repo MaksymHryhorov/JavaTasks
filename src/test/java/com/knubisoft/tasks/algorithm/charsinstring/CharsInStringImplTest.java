@@ -24,7 +24,7 @@ class CharsInStringImplTest {
 
     private Pair<String, Map<Character, Integer>> generateSeq() {
         Random random = new Random();
-        String setOfCharacters = "abcdefghxyz1234567-/@ansbdjh123uiy1i1290389!@#$%^&*()<>:L ";
+        String setOfCharacters = "abcdefghxyz1234567-/@ansbdjh123uiy1i1290389!@#$%^&*()<>:L";
         Map<Character, Integer> expected = new HashMap<>();
         StringBuilder b = new StringBuilder();
         for (int index = 0; index < 50; index++) {
