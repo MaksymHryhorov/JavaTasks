@@ -14,7 +14,9 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Context context = new Context(null, new File(System.getenv().get("TMP")));
+        String location = Main.class.getProtectionDomain().getCodeSource().getLocation().getFile();
+
+        Context context = new Context(null, new File(location));
         Map<String, Command> commands = getCommands(context);
         context.setCommandMap(commands);
 

@@ -1,0 +1,15 @@
+comprende - понимаешь
+comprendo - понимаю
+hablar - говорить
+escribir - писать
+estudiar - учить
+vivir - жизнь
+abrir - открыть
+
+	AR	ER	IR
+Yo	o	o	o
+Tu	as	es	es
+El	a	e	e
+Nosotros	amos	emos	imos
+Vosotros	ais	eis	is
+Ellos	an	en	en
