@@ -39,31 +39,29 @@ public class Ls extends Command {
     private void buildMainTable(StringBuilder result, File[] allFiles) {
         String format = "| %-13s | %-13d  | %-5s  | %-5s | %-10s |%n";
 
-
         for (File each : allFiles) {
             String read = canRead(each);
             String write = canWrite(each);
 
             result.append(String.format(format, each.getName(), each.getUsableSpace(),
-                   read, write, FilenameUtils.getExtension(each.getName())));
+                    read, write, FilenameUtils.getExtension(each.getName())));
         }
     }
 
     private String canWrite(File each) {
         if (each.canWrite()) {
-            return "write";
+            return "w";
         }
-        return "- ";
+        return "-";
     }
 
     private String canRead(File each) {
         if (each.canRead()) {
-            return "read ";
+            return "r";
         }
 
-        return "- ";
+        return "-";
     }
-
 
     private void buildFooterTable(StringBuilder result) {
         result.append(String.format("+--------------------------------------------------------------+%n"));

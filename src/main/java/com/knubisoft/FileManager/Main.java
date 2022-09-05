@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         String location = Main.class.getProtectionDomain().getCodeSource().getLocation().getFile();
 
-        Context context = new Context(null, new File(location));
+        Context context = new Context(null, new File(args[0]));
         Map<String, Command> commands = getCommands(context);
         context.setCommandMap(commands);
 
