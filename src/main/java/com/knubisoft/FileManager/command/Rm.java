@@ -14,7 +14,15 @@ public class Rm extends Command {
     @Override
     @SneakyThrows
     public String execute(List<String> args) {
-        if (args.get(1).equals("-r")) {
+        if (args.isEmpty()) {
+            return "Please write correctly command rm \"-r\" \"recursive\"";
+        }
+
+        if (args.size() < 2) {
+            return "Please write correctly command rm \"-r\" \"recursive\"";
+        }
+
+        if (args.get(0).equals("-r") && args.get(1).equals("recursive")) {
             File file = context.getCurrentDirectory();
             FileUtils.deleteDirectory(file);
 
