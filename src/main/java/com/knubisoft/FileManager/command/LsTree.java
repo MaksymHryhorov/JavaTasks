@@ -29,11 +29,9 @@ public class LsTree extends Command {
     }
 
     public void listDir(Path path, int depth) throws Exception {
-
         BasicFileAttributes attr = Files.readAttributes(path, BasicFileAttributes.class);
 
         if (attr.isDirectory()) {
-
             DirectoryStream<Path> paths = Files.newDirectoryStream(path);
             System.out.println(spacesForDepth(depth) + " > " + path.getFileName());
 
