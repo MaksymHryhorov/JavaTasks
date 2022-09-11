@@ -1,5 +1,9 @@
 package com.knubisoft.tasks.algorithm;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
@@ -7,6 +11,9 @@ import java.util.List;
  *
  * @see json and xml file
  */
+@Getter
+@Setter
+@Data
 public class ModelRoot {
 
     public List<Item> items;
@@ -16,6 +23,9 @@ public class ModelRoot {
         public String type;
     }
 
+    @Data
+    @Getter
+    @Setter
     public static class Item {
         public int id;
         public String type;
