@@ -1,8 +1,7 @@
 package com.knubisoft.tasks.algorithm;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.knubisoft.tasks.algorithm.reflection.AnnotationTest;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Data
+@RequiredArgsConstructor
 public class ModelRoot {
 
     public List<Item> items;
@@ -26,7 +26,9 @@ public class ModelRoot {
     @Data
     @Getter
     @Setter
+    @AllArgsConstructor
     public static class Item {
+        @AnnotationTest
         public int id;
         public String type;
         public String name;

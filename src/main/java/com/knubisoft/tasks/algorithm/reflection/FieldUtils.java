@@ -13,11 +13,11 @@ import java.lang.reflect.Field;
  */
 public interface FieldUtils {
 
-    Field getField(Class<?> cls, String fieldName);
+    Field getField(Class<?> cls, String fieldName) throws NoSuchFieldException;
 
-    Field getField(Class<?> cls, String fieldName, boolean forceAccess);
+    Field getField(Class<?> cls, String fieldName, boolean forceAccess) throws NoSuchFieldException, IllegalAccessException;
 
-    Field getDeclaredField(Class<?> cls, String fieldName);
+    Field getDeclaredField(Class<?> cls, String fieldName) throws NoSuchFieldException;
 
     Field[] getAllFields(Class<?> cls);
 
