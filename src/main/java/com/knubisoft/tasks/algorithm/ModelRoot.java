@@ -35,6 +35,28 @@ public class ModelRoot {
         public double ppu;
         public Batters batters;
         public List<Topping> topping;
+
+        public Item(int id) {
+            this.id = id;
+        }
+
+        public Item(int id, String type) {
+            this.id = id;
+            this.type = type;
+        }
+
+        public Item(int id, String type, String name, double ppu) {
+            this.id = id;
+            this.type = type;
+            this.name = name;
+            this.ppu = ppu;
+        }
+
+        public Item(int id, String type, String name) {
+            this.id = id;
+            this.type = type;
+            this.name = name;
+        }
     }
 
     public static class Batters {

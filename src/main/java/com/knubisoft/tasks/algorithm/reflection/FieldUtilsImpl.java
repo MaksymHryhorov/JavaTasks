@@ -4,7 +4,6 @@ import com.knubisoft.tasks.algorithm.ModelRoot;
 import com.knubisoft.tasks.algorithm.ModelRoot.Item;
 import lombok.SneakyThrows;
 
-import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
