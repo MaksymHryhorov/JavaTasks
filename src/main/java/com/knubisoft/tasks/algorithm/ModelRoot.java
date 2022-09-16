@@ -13,7 +13,8 @@ import java.util.List;
 @Getter
 @Setter
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class ModelRoot {
 
     public List<Item> items;
@@ -26,6 +27,7 @@ public class ModelRoot {
     @Data
     @Getter
     @Setter
+    @NoArgsConstructor
     @AllArgsConstructor
     public static class Item {
         @AnnotationTest
