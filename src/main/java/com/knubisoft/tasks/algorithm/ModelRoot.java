@@ -23,7 +23,6 @@ public class ModelRoot {
         public String id;
         public String type;
     }
-
     @Data
     @Getter
     @Setter
