@@ -1,7 +1,3 @@
-## Parser, Mapper [Implementation](https://github.com/MaksymHryhorov/JavaTests/tree/OrmBranch/src/main/java/com/knubisoft/ORMv2)
-`CSV`, `JSON / XML`, `DataBase`, `PDF (table parser)`  - You can parse, map your file to Java model and and write it to another file.
-
-___
 ## Tasks [Requirement](https://github.com/MaksymHryhorov/JavaTests/tree/master/src/main/java/com/knubisoft/base)
 
 ### Arrays [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/arrays/ArraysTasksImpl.java)
