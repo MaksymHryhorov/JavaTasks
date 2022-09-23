@@ -1,6 +1,7 @@
 package com.knubisoft.tasks.algorithm.collection;
 
 import lombok.SneakyThrows;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,9 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.NotDirectoryException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,6 +41,18 @@ class FilesImplTest {
     @SneakyThrows
     @Test
     void copyDirectoryToDirectory() {
+        File sourceDir = new File("src/main/java/com/knubisoft/tasks/algorithm/collection/empty");
+        File destinationDir = new File("src/main/java/com/knubisoft/tasks/algorithm/testDirectory");
+        File wrongFile = new File("");
+
+        files.copyDirectoryToDirectory(sourceDir, destinationDir);
+
+        boolean flag = FileUtils.getFile(destinationDir).isDirectory();
+
+        assertThrows(NullPointerException.class, () -> files.copyDirectoryToDirectory(null, null));
+        assertThrows(FileNotFoundException.class, () -> files.copyDirectoryToDirectory(sourceDir, wrongFile));
+
+        assertTrue(flag);
     }
 
     @SneakyThrows
@@ -79,18 +95,42 @@ class FilesImplTest {
     @SneakyThrows
     @Test
     void normalize() {
+        String file = "src///main////resources///esp.txt";
+        String file2 = "src///main////resources///..//..//esp.txt";
 
+        assertEquals("src\\main\\resources\\esp.txt", files.normalize(file));
+        assertEquals("src\\esp.txt", files.normalize(file2));
+        assertNull(files.normalize(null));
 
     }
 
     @SneakyThrows
     @Test
     void readLines() {
+        File file = new File("src/main/resources/esp.txt");
+        File wrongFile = new File("src");
+        List<String> list = FileUtils.readLines(file, Charset.defaultCharset());
+
+        assertThrows(NullPointerException.class, () -> files.readLines(null, StandardCharsets.UTF_8));
+        assertThrows(FileNotFoundException.class, () -> files.readLines(wrongFile, Charset.defaultCharset()));
+
+        assertEquals(list.get(0), files.readLines(file, Charset.defaultCharset()).get(0));
+        assertEquals(list.get(3), files.readLines(file, Charset.defaultCharset()).get(3));
     }
 
     @SneakyThrows
     @Test
     void isEmptyDirectory() {
+        File file = new File("src/main/java/com/knubisoft/tasks/algorithm/collection");
+        File file2 = new File("Wrong File");
+        File emptyDirectory = new File("src/main/java/com/knubisoft/tasks/algorithm/collection/empty");
+
+        assertThrows(NullPointerException.class, () -> files.isEmptyDirectory(null));
+        assertThrows(NotDirectoryException.class, () -> files.isEmptyDirectory(file2));
+
+        assertFalse(files.isEmptyDirectory(file));
+        assertTrue(files.isEmptyDirectory(emptyDirectory));
+
     }
 
 }

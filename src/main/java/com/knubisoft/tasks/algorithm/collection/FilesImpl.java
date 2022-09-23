@@ -1,6 +1,7 @@
 package com.knubisoft.tasks.algorithm.collection;
 
 import lombok.SneakyThrows;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.file.PathUtils;
 
@@ -8,6 +9,10 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.nio.file.NotDirectoryException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FilesImpl implements Files {
@@ -26,7 +31,15 @@ public class FilesImpl implements Files {
 
     @Override
     public void copyDirectoryToDirectory(File sourceDir, File destinationDir) throws IOException {
+        if (sourceDir == null || destinationDir == null) {
+            throw new NullPointerException();
+        }
 
+        if (!destinationDir.isDirectory() || !sourceDir.isDirectory()) {
+            throw new FileNotFoundException();
+        }
+
+        FileUtils.copyDirectoryToDirectory(sourceDir,destinationDir);
     }
 
     @Override
@@ -75,18 +88,57 @@ public class FilesImpl implements Files {
 
     @Override
     public String normalize(String fileName) {
+        if (fileName == null) {
+            return null;
+        }
 
+        Path path = Paths.get(fileName);
+        Path normalizedPath  = path.normalize();
 
-        return null;
+        return normalizedPath.toString();
     }
 
     @Override
     public List<String> readLines(File file, Charset charset) throws IOException {
-        return null;
+        if (file == null) {
+            throw new NullPointerException();
+        }
+
+        if (!file.exists()) {
+            throw new FileNotFoundException();
+        }
+
+        if (charset == null) {
+            charset = Charset.defaultCharset();
+        }
+
+        // First realization
+        List<String> stringList = new ArrayList<>();
+
+        /*Scanner scanner = new Scanner(file);
+
+        while(scanner.hasNext()) {
+            stringList.add(scanner.next());
+        }
+
+        return stringList;*/
+
+        // Second realization
+        stringList = FileUtils.readLines(file, charset);
+
+        return stringList;
     }
 
     @Override
-    public boolean isEmptyDirectory(File directory) {
-        return false;
+    public boolean isEmptyDirectory(File directory) throws IOException {
+        if (directory == null) {
+            throw new NullPointerException();
+        }
+
+        if (!directory.isDirectory()) {
+            throw new NotDirectoryException(directory.toString());
+        }
+
+        return PathUtils.isEmptyDirectory(directory.toPath());
     }
 }
