@@ -1,123 +1,63 @@
 ## Tasks [Requirement](https://github.com/MaksymHryhorov/JavaTests/tree/master/src/main/java/com/knubisoft/base)
 
 ### Arrays [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/arrays/ArraysTasksImpl.java)
-1. reverse 
-2. mergeArrays 
-3. findMax3InArray 
-4. findLongIncrContSubseq 
-5. sumOfAllUniqElem
-6. moveZeroes 
-7. findFinalValue 
-8. longestCommonPrefix 
-9. missingNumber 
-10. containsDuplicate
+`reverse` `mergeArrays` `findMax3InArray` `findLongIncrContSubseq` `sumOfAllUniqElem`
+
+`moveZeroes` `findFinalValue` `longestCommonPrefix`  `missingNumber`  `containsDuplicate`
 ___
 ### Boolean [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/bool/BoolTasksImpl.java)
-1. isTrueAutobox 
-2. isFalseAutobox 
-3. isTrueUnbox 
-4. isFalseUnbox
-5. orFunction 
-6. isSameSizeArray
-7. isSameCharactersCount 
-8. andFunction 
+`isTrueAutobox`  `isFalseAutobox` `isTrueUnbox`  `isFalseUnbox`
+
+`orFunction` `isSameSizeArray`  `isSameCharactersCount`  `andFunction`
 ___
 ### Date [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/date/DateTasksImpl.java)
-1. add1Day
-2. getMonthFromDate
-3. findBiggestDate
-4. getLastDayOfTheMonth
-5. sumTimes 
-6. getDateAfter2Weeks 
-7. getNumOfDaysBetwTwoDates 
-8. getTheNextAndPreviousFriday
+`add1Day` `getMonthFromDate` `findBiggestDate`  `getLastDayOfTheMonth`
+
+`sumTimes` `getDateAfter2Weeks` `getNumOfDaysBetwTwoDates` `getTheNextAndPreviousFriday`
 ___
 ### List [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/list/ListTasksImpl.java)
-1. addElements
-2. getElementsByIndexes 
-3. addElementsByIndexes
-4. setElementsByIndexes 
-5. getListSize
-6. merge 
-7. findMaxValue
-8. findMinValue 
-9. multiplyMax2Elements
-10. removeNulls
-11. flatMapWithoutNulls
+`addElements`  `getElementsByIndexes` `addElementsByIndexes` `setElementsByIndexes` `getListSize`
+
+`merge` `findMaxValue`  `findMinValue` `multiplyMax2Elements` `removeNulls` `flatMapWithoutNulls`
 ___
 ### Numbers [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/numbers/NumbersTasksImpl.java)
-1. swapTwoNumbWithtUsTempVar 
-2. isUglyInt 
-3. addDigits
-4. isHarshadNumber
-5. isPrime
-6. isArmstrongNumber
-7. factorial
-8. palindrome 
-9. isAutomorphic 
+`swapTwoNumbWithtUsTempVar` `isUglyInt` `addDigits`  `isHarshadNumber`
+
+`isPrime` `isArmstrongNumber`  `factorial`  `palindrome` `isAutomorphic`
 ___
 ### Pattern [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/numbers/NumbersTasksImpl.java)
-1. haveSetOfCharacters
-2. matchByCharacters
-3. matchStartAndEnd
-4. matchIpAddress
-5. matchVowels
-6. validatePIN
-7. divideDigit
-8. removeAllNonAlphanumericCharacters
-9. validatePhoneNumber
-10. getLastVowelsByConstraint
-11. isMathematicalExpression
-12. insertDash
+`haveSetOfCharacters`  `matchByCharacters`  `matchStartAndEnd` `matchIpAddress` 
+
+`matchVowels` `validatePIN`  `divideDigit`  `removeAllNonAlphanumericCharacters`
+
+`validatePhoneNumber`  `getLastVowelsByConstraint` `isMathematicalExpression`  `insertDash`
 ___
 ### Queue [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/queue/QueueTasksImpl.java)
-1. reverseQueueUsingRecursion
-2. reverseFirstKElementsOfQueue
-3. sortQueueOfInt
-4. validParentheses
-5. implementPriorityQueueThroughComparator
+`reverseQueueUsingRecursion` `reverseFirstKElementsOfQueue`
+
+`sortQueueOfInt`  `validParentheses` `implementPriorityQueueThroughComparator`
 ___
 ### Reflection [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/reflection/ReflectionTasksImpl.java)
-1. createNewInstanceForClass
-2. findImplementationForInterface
-3. findAllFieldsForClass
-4. countPrivateMethodsInClass
-5. isMethodHasAnnotation
-6. evaluateMethodByName
-7. evaluateMethodWithArgsByName
-8. changePrivateFieldValue
+`createNewInstanceForClass`  `findImplementationForInterface` 
+
+`findAllFieldsForClass``countPrivateMethodsInClass`  `isMethodHasAnnotation` 
+
+`evaluateMethodByName` `evaluateMethodWithArgsByName` `changePrivateFieldValue`
 ___
 ### String [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/string/StringTasksImpl.java)
-1. reverseString
-2. insertStringInMiddle
-3. insertSymbolInString
-4. appendToString
-5. isPalindrome
-6. hasLowerCase
-7. uniqueCharacters
-8. removeAllCharacters
-9. toCamelCase
-10. getCountRepeatableString
-11. sortStringCharactersAsc
+`reverseString`  `insertStringInMiddle` `insertSymbolInString` 
+
+`appendToString` `toCamelCase` `isPalindrome` `hasLowerCase` 
+
+`uniqueCharacters` `removeAllCharacters`  `getCountRepeatableString`  `sortStringCharactersAsc`
 ___
 ### Trees [Implementation](https://github.com/MaksymHryhorov/JavaTests/blob/master/src/main/java/com/knubisoft/base/trees/TreeTasksImpl.java)
-1. isSameTree
-2. inorderTraversal
-3. isSymmetric
-4. maxDepth
-5. hasPathSum
-6. invertTree
-7. sumOfLeftLeaves
-8. mergeTrees
+`isSameTree` `inorderTraversal` `isSymmetric`  `maxDepth`
+
+`hasPathSum` `invertTree` `sumOfLeftLeaves`  `mergeTrees`
 ___
 ## Algorithm [Implementation](https://github.com/MaksymHryhorov/JavaTests/tree/master/src/main/java/com/knubisoft/tasks/algorithm)
-1. charsinstring
-2. collection
-3. fibonacci
-4. json
-5. luckyticket
-6. pascaltriangle
-7. reflection
-8. search
-9. sorting
+`charsinstring`  `collection` `fibonacci`  `json` `luckyticket`
+
+`pascaltriangle` `reflection` `search` `sorting`
 ___
