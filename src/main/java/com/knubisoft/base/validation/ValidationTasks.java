@@ -1,6 +1,7 @@
 package com.knubisoft.base.validation;
 
 import com.knubisoft.base.validation.annotation.*;
+import com.knubisoft.base.validation.excpetion.ExceptionHandler;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +23,8 @@ public interface ValidationTasks {
     /**
      * Validate your instance (p.1 - p.5)
      * */
-    void validate(Object instance);
+    void validate(Object instance) throws ExceptionHandler;
+
     /**
      * Builder to create User
      * */
