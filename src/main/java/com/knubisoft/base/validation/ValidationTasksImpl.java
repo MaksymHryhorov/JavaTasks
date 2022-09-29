@@ -115,7 +115,16 @@ public class ValidationTasksImpl implements ValidationTasks {
 
     @Override
     public User buildUser() {
-        return null;
+        User user = new User();
+        user.setId(0L);
+        user.setName("MyName");
+        user.setSurname("MySurName");
+        user.setMarried(false);
+        user.setCountOfChildren(3);
+        user.setCountOfPets(1);
+        user.setFkUserGeneralDetails(10L);
+
+        return user;
     }
 
     @Override
