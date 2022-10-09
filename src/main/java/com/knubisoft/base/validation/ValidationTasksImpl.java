@@ -129,11 +129,25 @@ public class ValidationTasksImpl implements ValidationTasks {
 
     @Override
     public UserGeneralDetails buildUserGeneralDetails() {
-        return null;
+        UserGeneralDetails ugd = new UserGeneralDetails();
+        ugd.setId(0L);
+        ugd.setPreviousProfession("Developer");
+        ugd.setCountry("Ukraine");
+        ugd.setOblast("Kharkov");
+        ugd.setCity("Kharkov");
+        ugd.setFkUserAddressDetails(12L);
+
+        return ugd;
     }
 
     @Override
     public UserAddressDetails buildUserAddressDetails() {
-        return null;
+        UserAddressDetails uad = new UserAddressDetails();
+        uad.setId(0L);
+        uad.setZipCode("ZipFormat");
+        uad.setStreet("Baker Street");
+        uad.setNumberOfHouse("221 B");
+
+        return uad;
     }
 }
