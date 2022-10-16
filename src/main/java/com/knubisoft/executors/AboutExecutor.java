@@ -2,7 +2,7 @@ package com.knubisoft.executors;
 
 import java.util.concurrent.Executor;
 
-public class AboutExecutors {
+public class AboutExecutor {
     public static void main(String[] args) {
         Runnable runnable = () -> System.out.println("Start");
 
