@@ -23,7 +23,7 @@ public class SemaphoreCreator extends Thread {
             System.out.println(myQueue.getName() + " is going to the exit" + "\r\n");
             semaphore.release();
 
-            sleep(2000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class SemaphoreCreator extends Thread {
         int randomValue = random.nextInt(5);
 
         switch (randomValue) {
-            case 1, 2 -> System.out.println(queue.getName() + " flunked the exam");
+            case 0, 1, 2 -> System.out.println(queue.getName() + " flunked the exam");
             case 3, 4, 5 -> System.out.println(queue.getName() + " Passed the exam");
         }
 
